@@ -1,9 +1,7 @@
-import { clientCredentials } from '../utils/client';
+const endpoint = 'https://localhost:7287';
 
-const endpoint = clientCredentials.databaseURL;
-
-const getCharities = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/charity.json?orderBy="uid"&equalTo="${uid}"`, {
+const getCharities = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/charity`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +19,7 @@ const getCharities = (uid) => new Promise((resolve, reject) => {
 });
 
 const getSingleCharity = (id) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/charity/${id}.json`, {
+  fetch(`${endpoint}/charity/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +31,7 @@ const getSingleCharity = (id) => new Promise((resolve, reject) => {
 });
 
 const createCharity = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/charity.json`, {
+  fetch(`${endpoint}/charity`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +44,7 @@ const createCharity = (payload) => new Promise((resolve, reject) => {
 });
 
 const updateCharity = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players/${payload.id}.json`, {
+  fetch(`${endpoint}/charities/${payload.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +57,7 @@ const updateCharity = (payload) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleCharity = (id) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players/${id}.json`, {
+  fetch(`${endpoint}/charities/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
