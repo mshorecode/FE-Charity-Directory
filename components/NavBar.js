@@ -23,10 +23,13 @@ export default function NavBar() {
             <Link passHref href="/">
               <Nav.Link>Home</Nav.Link>
             </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
+            <Link passHref href="/charities/view">
+              <Nav.Link>Charities</Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <Button variant="danger" onClick={signOut}>Sign Out</Button>
     </Navbar>
   );
 }
