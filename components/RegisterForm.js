@@ -14,6 +14,7 @@ function RegisterForm({ user, onUpdate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     registerUser(formData).then(() => onUpdate(user.uid));
+    window.location.reload();
   };
 
   return (
