@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSingleCharity } from '../../../api/charityData';
 import CreateCharityForm from '../../../components/CreateForm';
@@ -11,6 +11,8 @@ export default function EditCharity() {
   useEffect(() => {
     getSingleCharity(id).then(setEditItem);
   }, [id]);
+
+  console.warn(editItem);
 
   return (<CreateCharityForm chObj={editItem} />);
 }
