@@ -43,8 +43,22 @@ const deleteSubscription = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getsubscriptionsByCharity = (charityId) => new Promise((resolve, reject) => {
+    fetch(`${endpoint}/api/subscriptionsByCharity/${charityId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then((response) => resolve(response.json()))
+      // .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
 export {
   deleteSubscription,
   getAllSubscriptions,
   createSubscription,
+  getsubscriptionsByCharity,
 };
