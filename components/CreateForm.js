@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
-import { createCharity } from '../api/charityData';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { createCharity, updateCharity } from '../api/charityData';
 
 const initialState = {
   name: '',
@@ -14,6 +14,10 @@ export default function CreateCharityForm({ chObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
 
+  useEffect(() => {
+    if (chObj.id) setFormInput(chObj);
+  }, [chObj]);
+
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
   //   setFormInput((prevState) => ({
@@ -24,7 +28,11 @@ export default function CreateCharityForm({ chObj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createCharity(formInput).then(() => router.push('/'));
+    if (chObj.id) {
+      updateCharity(formInput).then(() => router.push(`/charities/${chObj.id}`));
+    } else {
+      createCharity(formInput).then(() => router.push('/charities/view'));
+    }
   };
 
   return (
