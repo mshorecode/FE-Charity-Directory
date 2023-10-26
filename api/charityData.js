@@ -57,7 +57,7 @@ const updateCharity = (payload) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleCharity = (id) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/api/charitiesbyID/${id}`, {
+  fetch(`${endpoint}/charitiesbyID/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const deleteSingleCharity = (id) => new Promise((resolve, reject) => {
   })
     // .then((response) => {
     //   if (!response.ok) {
-    //     throw new Error('Network response was not ok');
+    //     throw new Error('Response was not ok');
     //   }
     //   return response.text(); // Get the response as text
     // })
@@ -77,10 +77,7 @@ const deleteSingleCharity = (id) => new Promise((resolve, reject) => {
     //     console.warn('Response is empty');
     //   }
     // })
-    // .catch((error) => {
-    //   console.error('Error:', error);
-    // });
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
