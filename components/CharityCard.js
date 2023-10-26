@@ -2,12 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
-// import { deleteSingleCharity } from '../api/charityData';
+import { deleteSingleCharity } from '../api/charityData';
 
-export default function CharityCard({ charityObj }) {
-  // if (window.confirm(`Are you sure you want to delete ${charityObj.name}?`)) {
-  //   deleteSingleCharity(charityObj.id).then(() => onUpdate());
-  // }
+export default function CharityCard({ charityObj, onUpdate }) {
+  const deleteCharity = (() => {
+    if (window.confirm(`Are you sure you want to delete ${charityObj.name}?`)) {
+      deleteSingleCharity(charityObj.id).then(() => onUpdate());
+    }
+  }
+
+  );
   return (
     <Card style={{
       width: '18rem', margin: '10px', backgroundColor: '#2B2D42', color: 'white',
@@ -24,11 +28,10 @@ export default function CharityCard({ charityObj }) {
           <Link href={`/charities/${charityObj.id}`} passHref>
             <Button className="m-2 view-btn">👀</Button>
           </Link>
-          {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
           <Link href={`/charities/edit/${charityObj.id}`} passHref>
             <Button className="edit-btn">✍️</Button>
           </Link>
-          <Button className="m-2 del-btn">
+          <Button className="m-2" onClick={deleteCharity}>
             ❌
           </Button>
         </div>
@@ -44,4 +47,5 @@ CharityCard.propTypes = {
     description: PropTypes.string,
     imgUrl: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
