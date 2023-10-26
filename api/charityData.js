@@ -57,27 +57,12 @@ const updateCharity = (payload) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleCharity = (id) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/charitiesbyID/${id}`, {
+  fetch(`${endpoint}/charitiesByID/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    // .then((response) => {
-    //   if (!response.ok) {
-    //     throw new Error('Response was not ok');
-    //   }
-    //   return response.text(); // Get the response as text
-    // })
-    // .then((text) => {
-    //   if (text) {
-    //     const data = JSON.parse(text); // Attempt to parse JSON
-    //     console.warn(data);
-    //   } else {
-    //     console.warn('Response is empty');
-    //   }
-    // })
-    .then((res) => res.json())
     .then((data) => resolve(data))
     .catch(reject);
 });

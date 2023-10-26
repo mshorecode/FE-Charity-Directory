@@ -2,17 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
-import { useRouter } from 'next/router';
 import { deleteSingleCharity } from '../api/charityData';
 
 export default function CharityCard({ charityObj, onUpdate }) {
-  const router = useRouter();
-
   const deleteCharity = (() => {
     if (window.confirm(`Are you sure you want to delete ${charityObj.name}?`)) {
       deleteSingleCharity(charityObj.id).then(() => onUpdate());
-      router.push('/charities/view');
-      console.warn(charityObj.id);
     }
   }
 
