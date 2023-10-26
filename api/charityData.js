@@ -44,8 +44,8 @@ const createCharity = (payload) => new Promise((resolve, reject) => {
 });
 
 const updateCharity = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/charities/${payload.id}`, {
-    method: 'PATCH',
+  fetch(`${endpoint}/charity/${payload.id}`, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
