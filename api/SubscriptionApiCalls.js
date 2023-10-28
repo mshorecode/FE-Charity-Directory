@@ -1,13 +1,13 @@
 const endpoint = 'https://localhost:7287';
 
-const createSubscription = (payload) => new Promise((resolve, reject) => {
+const createSubscription = (charityId, userId) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/subscription`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(charityId, userId),
   })
     .then(async (res) => {
       let data;
@@ -44,17 +44,17 @@ const deleteSubscription = (id) => new Promise((resolve, reject) => {
 });
 
 const getsubscriptionsByCharity = (charityId) => new Promise((resolve, reject) => {
-    fetch(`${endpoint}/api/subscriptionsByCharity/${charityId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => resolve(response.json()))
-      // .then((data) => resolve(Object.values(data)))
-      .catch(reject);
-  });
+  fetch(`${endpoint}/subscriptionsByCharity/${charityId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((response) => resolve(response.json()))
+  // .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
 export {
   deleteSubscription,
