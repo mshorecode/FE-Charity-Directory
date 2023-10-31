@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import RegisterForm from '../components/RegisterForm';
