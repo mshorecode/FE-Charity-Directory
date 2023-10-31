@@ -8,10 +8,10 @@ export default function SearchResultsList({ results }) {
   const router = useRouter();
 
   return (
-    <Form className="query-list">
+    <Form className="d-flex justify-content-center flex-wrap">
       {results.map((result) => (
         <Button
-          className="result-btn"
+          id="result-btn"
           key={result.id}
           onClick={() => router.push(`/charities/${result.id}`)}
         >

@@ -41,16 +41,26 @@ body {
 }
 
 .under-search {
-  width: 10%;
-  /* float: right; */
-  margin-right: 7%;
-  position: absolute;
-  right: 0;
-  padding: 0;
+  margin: 0 auto;
+  margin: 10px;
 }
 
-.result-btn {
-  background-color: transparent;
+.search-box {
   border: none;
-  color: black;
+  border-radius: 10px;
+  height: 50px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#result-btn {
+  background: transparent;
+  border: none !important;
 }
