@@ -1,7 +1,7 @@
 const endpoint = 'https://localhost:7287';
 
 const createSubscription = (charityId, userId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/subscription`, {
+  fetch(`${endpoint}/${charityId}/subscription/${userId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const getsubscriptionsByCharity = (charityId) => new Promise((resolve, reject) =
     },
   })
     .then((response) => resolve(response.json()))
-  // .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
