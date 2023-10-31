@@ -20,3 +20,28 @@ a {
 body {
   background-color: #fff;
 }
+
+.underneath {
+  margin: 0 auto;
+  margin: 20px;
+}
+
+.search-box {
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#result-btn {
+  background: transparent;
+  border: none !important;
+}

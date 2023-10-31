@@ -83,7 +83,7 @@ export default function ViewCharity() {
       <hr />
       <h1 className="text-center">Current Donors</h1>
       {/* SIMPLE PROFILE CARDS */}
-      <h2>{subscriptionDetails[0].name}</h2>
+      <h2>{subscriptionDetails[0]?.name}</h2>
     </>
   );
 }
