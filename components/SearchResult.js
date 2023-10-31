@@ -8,7 +8,7 @@ export default function SearchResult({ result }) {
       className="search-result"
     >
       <Card style={{
-        width: '18rem', backgroundColor: '#2B2D42', color: 'white',
+        width: '25rem', height: '25rem', margin: '8px', backgroundColor: '#fff', color: 'black', boxShadow: '3px 3px 4px #9e9e9e', borderRadius: '18px',
       }}
       >
         <Card.Img variant="top" src={result.imgUrl} alt="Charity Logo" />
