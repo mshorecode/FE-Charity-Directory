@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
-// import { useRouter } from 'next/router';
 
 export default function SearchBar({ setResults }) {
   const [input, setInput] = useState([]);
-  // const [query, setQuery] = useState('');
 
+  // fetches data to display on dom
   const fetchData = (value) => {
     fetch('https://localhost:7287/charity')
       .then((response) => response.json())
@@ -16,13 +15,19 @@ export default function SearchBar({ setResults }) {
       });
   };
 
+  // allows for input and fetches equivalent data to display
   const handleChange = (value) => {
     setInput(value);
     fetchData(value);
   };
 
+  // prevents user from hitting enter to reset form
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <Form>
+    <Form onSubmit={submitHandler}>
       <div>
         <input
           type="text"
