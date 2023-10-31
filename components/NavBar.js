@@ -21,7 +21,7 @@ export default function NavBar() {
             <Nav.Link className="me-auto">Search</Nav.Link>
           </Link>
         </Nav>
-        <div className="s-in">
+        <div>
           <Button variant="danger" onClick={signOut} style={{ margin: '0px 20px 0px 0px' }}>Sign Out</Button>
         </div>
       </Navbar>

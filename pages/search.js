@@ -10,7 +10,7 @@ export default function SearchPage() {
         <h1 className="mb-3">Search Charities</h1>
         <SearchBar setResults={setResults} />
       </div>
-      <div className="under-search d-flex justify-content-center flex-wrap">
+      <div className="underneath d-flex justify-content-center flex-wrap">
         <SearchResultsList results={results} />
       </div>
     </>
