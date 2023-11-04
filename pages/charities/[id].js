@@ -83,13 +83,18 @@ export default function ViewCharity() {
       <hr />
       <h1 className="text-center">Current Donors</h1>
       {/* SIMPLE PROFILE CARDS */}
-      <Card style={{
-        width: '275px', height: '100px', padding: '15px', fontWeight: '600', boxShadow: '2px 2px 4px #9e9e9e',
-      }}
-      >
-        <h2>{subscriptionDetails[0]?.name}</h2>
-        <p style={{ fontSize: '16px' }}>{subscriptionDetails[0]?.email}</p>
-      </Card>
+      <div>
+        {subscriptionDetails[0]?.name
+          ? (
+            <Card style={{
+              width: '275px', height: '100px', padding: '15px', fontWeight: '600', boxShadow: '2px 2px 4px #9e9e9e',
+            }}
+            >
+              <h2>{subscriptionDetails[0]?.name}</h2>
+              <p style={{ fontSize: '16px' }}>{subscriptionDetails[0]?.email}</p>
+            </Card>
+          ) : ''}
+      </div>
     </>
   );
 }
