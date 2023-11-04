@@ -29,8 +29,6 @@ export default function ViewCharity() {
     getsubscriptionsByCharity(id).then(setSubscriptionDetails);
   }, [id]);
 
-  console.warn(user);
-
   return (
     <>
       <div className="d-flex justify-content-end mt-5 mb-0">
@@ -83,13 +81,16 @@ export default function ViewCharity() {
       <hr />
       <h1 className="text-center">Current Donors</h1>
       {/* SIMPLE PROFILE CARDS */}
-      <Card style={{
-        width: '275px', height: '100px', padding: '15px', fontWeight: '600', boxShadow: '2px 2px 4px #9e9e9e',
-      }}
-      >
-        <h2>{subscriptionDetails[0]?.name}</h2>
-        <p style={{ fontSize: '16px' }}>{subscriptionDetails[0]?.email}</p>
-      </Card>
+      {subscriptionDetails[0]?.name
+        ? (
+          <Card style={{
+            width: '275px', height: '100px', padding: '15px', fontWeight: '600', boxShadow: '2px 2px 4px #9e9e9e',
+          }}
+          >
+            <h2>{subscriptionDetails[0]?.name}</h2>
+            <p style={{ fontSize: '16px' }}>{subscriptionDetails[0]?.email}</p>
+          </Card>
+        ) : ''}
     </>
   );
 }
