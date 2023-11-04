@@ -24,7 +24,14 @@ export default function AllCharities() {
         <h1 className="align-self-end text-center mb-0">Charities</h1>
         <div className="align-self-end text-center">
           <Link href="/charities/new" passHref>
-            <Button size="md" className="btn-m" style={{ backgroundColor: 'transparent', color: 'black', border: 'none', fontWeight: 600}}>Create</Button>
+            <Button
+              size="md"
+              className="btn-m"
+              style={{
+                backgroundColor: 'transparent', color: 'black', border: 'none', fontWeight: 600,
+              }}
+            >Create
+            </Button>
           </Link>
         </div>
       </div>
