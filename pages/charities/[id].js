@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { deleteSingleCharity, getSingleCharity } from '../../api/charityData';
 import { createSubscription, getsubscriptionsByCharity } from '../../api/SubscriptionApiCalls';
 import { useAuth } from '../../utils/context/authContext';
@@ -83,7 +83,13 @@ export default function ViewCharity() {
       <hr />
       <h1 className="text-center">Current Donors</h1>
       {/* SIMPLE PROFILE CARDS */}
-      <h2>{subscriptionDetails[0]?.name}</h2>
+      <Card style={{
+        width: '275px', height: '100px', padding: '15px', fontWeight: '600', boxShadow: '2px 2px 4px #9e9e9e',
+      }}
+      >
+        <h2>{subscriptionDetails[0]?.name}</h2>
+        <p style={{ fontSize: '16px' }}>{subscriptionDetails[0]?.email}</p>
+      </Card>
     </>
   );
 }

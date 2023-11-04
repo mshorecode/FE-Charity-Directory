@@ -30,6 +30,7 @@ export default function SearchBar({ setResults }) {
     <Form onSubmit={submitHandler}>
       <div>
         <input
+          style={{ borderBottom: '1px solid black', borderRadius: '0%' }}
           type="text"
           className="search-box"
           placeholder="Search Charities"
